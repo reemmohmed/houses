@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:houses/core/app_validator.dart';
-import 'package:houses/core/navebare_view.dart';
 import 'package:houses/core/titel_text_widget.dart';
 import 'package:houses/featuers/auth/presentation/data/logic/cubit/auth_cubit.dart';
 import 'package:houses/featuers/auth/presentation/views/login_view.dart';
+import 'package:houses/featuers/auth/presentation/views/widget/custom_textformField.dart';
+import 'package:houses/featuers/auth/presentation/views/widget/customonpresed.dart';
+import 'package:houses/featuers/home/presentation/views/home_view.dart';
+import 'package:houses/featuers/root.dart';
 
 class SighUpView extends StatefulWidget {
   const SighUpView({super.key});
@@ -42,66 +45,59 @@ class _SighUpViewState extends State<SighUpView> {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-        body: BlocListener<AuthCubit, AuthState>(
-          listener: (context, state) {
-            if (state is AuthLoggedIn) {
-              // هنا يتم التنقل
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (_) => NavebareView()),
-              );
-            } else if (state is AuthFailure) {
-              ScaffoldMessenger.of(
-                context,
-              ).showSnackBar(SnackBar(content: Text(state.error)));
-            }
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(12),
+        body: Padding(
+          padding: const EdgeInsets.all(12),
 
-            child: SingleChildScrollView(
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    SizedBox(height: 100),
-                    TitelTextWidget(text: "Welcome To Back"),
-                    SizedBox(height: 50),
-                    CustomTextFormField(
-                      validator: AppValidator.passwordValidator,
-                      textLable: "name",
-                      controller: nameController,
-                      iconprefix: Icons.person,
-                    ),
-                    SizedBox(height: 50),
-                    CustomTextFormField(
-                      validator: AppValidator.emailValidator,
-                      textLable: "Email",
-                      controller: emailController,
-                      iconprefix: Icons.email,
-                    ),
-                    SizedBox(height: 50),
-                    CustomTextFormField(
-                      controller: passwordController,
-                      validator: AppValidator.passwordValidator,
-                      textLable: "password",
-                      iconprefix: Icons.password,
-                    ),
-                    SizedBox(height: 250),
-                    CustomOnpresed(
-                      textContaner: "Sign UP",
-                      onTap: () {
-                        if (_formKey.currentState!.validate()) {
-                          context.read<AuthCubit>().signUp(
-                            emailController.text.trim(),
-                            passwordController.text.trim(),
-                            nameController.text.trim(),
-                          );
-                        }
-                      },
-                    ),
-                  ],
-                ),
+          child: SingleChildScrollView(
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  SizedBox(height: 100),
+                  TitelTextWidget(text: "Welcome To Back"),
+                  SizedBox(height: 50),
+                  CustomTextFormField(
+                    validator: AppValidator.passwordValidator,
+                    textLable: "name",
+                    controller: nameController,
+                    iconprefix: Icons.person,
+                  ),
+                  SizedBox(height: 50),
+                  CustomTextFormField(
+                    validator: AppValidator.emailValidator,
+                    textLable: "Email",
+                    controller: emailController,
+                    iconprefix: Icons.email,
+                  ),
+                  SizedBox(height: 50),
+                  CustomTextFormField(
+                    controller: passwordController,
+                    validator: AppValidator.passwordValidator,
+                    textLable: "password",
+                    iconprefix: Icons.password,
+                  ),
+                  SizedBox(height: 250),
+                  CustomOnpresed(
+                    textContaner: "Sign UP",
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Root();
+                          },
+                        ),
+                      );
+                      // if (_formKey.currentState!.validate()) {
+                      //   context.read<AuthCubit>().signUp(
+                      //     emailController.text.trim(),
+                      //     passwordController.text.trim(),
+                      //     nameController.text.trim(),
+                      //   );
+                      // }
+                    },
+                  ),
+                ],
               ),
             ),
           ),
