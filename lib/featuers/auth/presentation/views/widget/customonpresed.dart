@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:houses/core/titel_text_widget.dart';
 
@@ -12,12 +11,12 @@ class CustomOnpresed extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 150, vertical: 12),
+        padding: EdgeInsets.symmetric(vertical: 14, horizontal: 24),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: Colors.blue,
         ),
-        child: TitelTextWidget(text: textContaner),
+        child: Center(child: TitelTextWidget(text: textContaner)),
       ),
     );
   }
