@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:houses/core/app_validator.dart';
+import 'package:houses/featuers/auth/presentation/views/forgot_password.dart';
 import 'package:houses/featuers/auth/presentation/views/sigh_up_view.dart';
 import 'package:houses/featuers/auth/presentation/views/widget/custom_textformField.dart';
 import 'package:houses/featuers/auth/presentation/views/widget/customonpresed.dart';
@@ -141,7 +142,14 @@ class _LoginViewState extends State<LoginView> {
                           Align(
                             alignment: Alignment.centerRight,
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const ForgotPassword(),
+                                  ),
+                                );
+                              },
                               child: const Text("Forgot Password?"),
                             ),
                           ),
@@ -155,7 +163,7 @@ class _LoginViewState extends State<LoginView> {
                               textContaner: "Login",
                               onTap: () {
                                 // if (_formKey.currentState!.validate()) {
-                                Navigator.pushReplacement(
+                                Navigator.push(
                                   context,
                                   MaterialPageRoute(builder: (_) => Root()),
                                 );
