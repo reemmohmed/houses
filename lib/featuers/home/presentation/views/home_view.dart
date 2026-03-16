@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:houses/core/subtitel_text_widget.dart';
 import 'package:houses/core/titel_text_widget.dart';
+import 'package:houses/featuers/home/presentation/views/detail_view.dart';
 import 'package:houses/featuers/home/presentation/views/widget/custom_stack_image.dart';
 import 'package:houses/featuers/home/presentation/views/widget/shimmer_image.dart';
 import 'dart:async';
@@ -72,9 +73,14 @@ class _HomeViewState extends State<HomeView> {
                       },
                     )
                   : ListView.builder(
+                  
                       itemBuilder: (context, index) {
                         // final home = _homes[index];
-                        return CustomStackImage();
+                        return CustomStackImage(
+                          onTap: (){
+                             Navigator.push(context, MaterialPageRoute(builder: (_) => DetailView()));
+                          },
+                        );
                       },
                     ),
             ),
