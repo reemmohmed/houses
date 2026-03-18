@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:houses/featuers/Serach/views/search_view.dart';
 import 'package:houses/featuers/home/presentation/views/home_view.dart';
-import 'package:houses/featuers/profile/profile_view.dart';
+import 'package:houses/featuers/Videos/Videos_view.dart';
 
 class NavebareView extends StatefulWidget {
   const NavebareView({super.key});

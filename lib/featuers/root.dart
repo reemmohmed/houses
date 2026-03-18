@@ -4,7 +4,7 @@ import 'package:houses/core/const/app_color.dart';
 import 'package:houses/featuers/Serach/views/search_view.dart';
 import 'package:houses/featuers/chat/views/chat_view.dart';
 import 'package:houses/featuers/home/presentation/views/home_view.dart';
-import 'package:houses/featuers/profile/profile_view.dart';
+import 'package:houses/featuers/Videos/Videos_view.dart';
 
 class Root extends StatefulWidget {
   const Root({super.key});
@@ -20,7 +20,7 @@ class _RootState extends State<Root> {
 
   @override
   void initState() {
-    pages = [HomeView(), SearchView(), ChatView(), ProfileView()];
+    pages = [HomeView(), SearchView(), ChatView(), VideosView()];
     controller = PageController(initialPage: curntScreen);
     super.initState();
   }
@@ -70,8 +70,8 @@ class _RootState extends State<Root> {
               ),
               BottomNavigationBarItem(label: "chat", icon: Icon(Icons.chat)),
               BottomNavigationBarItem(
-                label: "Profile",
-                icon: Icon(CupertinoIcons.profile_circled),
+                label: "Videos",
+                icon: Icon(CupertinoIcons.plus_rectangle_on_rectangle),
               ),
             ],
           ),

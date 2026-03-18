@@ -36,12 +36,16 @@ dependencies:
   secure_storage_local_storage_inspector: ^0.7.0
   shared_preferences: ^2.5.3
   shimmer: ^3.0.0
+  video_player: ^2.8.2
 
 dev_dependencies:
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
-
+flutter_icons:
+  android: true
+  ios: trues
+  image_path: "assets/icon/icon_app.png"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
