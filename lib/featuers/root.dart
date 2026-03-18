@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:houses/core/const/app_color.dart';
-import 'package:houses/featuers/Serach/search_view.dart';
-import 'package:houses/featuers/chat/chat_app.dart';
+import 'package:houses/featuers/Serach/views/search_view.dart';
+import 'package:houses/featuers/chat/views/chat_view.dart';
 import 'package:houses/featuers/home/presentation/views/home_view.dart';
 import 'package:houses/featuers/profile/profile_view.dart';
 
@@ -20,7 +20,7 @@ class _RootState extends State<Root> {
 
   @override
   void initState() {
-    pages = [HomeView(), SearchView(), ChatApp(), ProfileView()];
+    pages = [HomeView(), SearchView(), ChatView(), ProfileView()];
     controller = PageController(initialPage: curntScreen);
     super.initState();
   }
