@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:houses/core/const/image_app.dart';
 import 'package:houses/core/titel_text_widget.dart';
 import 'package:houses/featuers/home/presentation/views/widget/detailI_mage.dart';
 import 'package:houses/featuers/home/presentation/views/widget/image_carousel.dart';
@@ -17,10 +19,11 @@ class _DetailViewState extends State<DetailView> {
   int _currentImageIndex = 0;
 
   final List<String> images = [
-    "https://i.pravatar.cc/500?img=1",
-    "https://i.pravatar.cc/500?img=2",
-    "https://i.pravatar.cc/500?img=3",
-    "https://i.pravatar.cc/500?img=4",
+    ImageApp.one,
+    ImageApp.tow,
+    ImageApp.three,
+    ImageApp.four,
+    ImageApp.five,
   ];
 
   @override
@@ -39,11 +42,26 @@ class _DetailViewState extends State<DetailView> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: TitelTextWidget(
-          text: "Detail View",
-          fontSize: size.width * 0.05,
-          color: Colors.white,
+
+        title: FittedBox(
+          fit: BoxFit.scaleDown, // يقلل حجم النص لو كبير
+          child: Text(
+            "Detail View",
+            style: TextStyle(
+              fontSize: kIsWeb
+                  ? size.width * 0.05
+                  : size.width * 0.04, // الحد الأقصى لحجم النص
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
+
+        // title: TitelTextWidget(
+        //   text: "Detail View",
+        //   fontSize: kIsWeb ? size.width * 0.05 : size.width * 0.04,
+        //   color: Colors.white,
+        // ),
         backgroundColor: Colors.blueGrey[800],
       ),
       body: SingleChildScrollView(
@@ -70,6 +88,7 @@ class _DetailViewState extends State<DetailView> {
             : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 12),
                   DetailImage(imageUrl: images[_currentImageIndex], size: size),
                   const SizedBox(height: 12),
                   ImageCarousel(
@@ -83,10 +102,10 @@ class _DetailViewState extends State<DetailView> {
                   ),
                   const SizedBox(height: 16),
                   ProductInfo(size: size),
+                  const SizedBox(height: 200),
                 ],
               ),
       ),
     );
   }
 }
-

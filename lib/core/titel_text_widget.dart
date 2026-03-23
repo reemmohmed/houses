@@ -32,6 +32,7 @@ class TitelTextWidget extends StatelessWidget {
       text,
       maxLines: maxLines,
       style: TextStyle(
+        
         fontSize: fontSize,
         fontWeight: fontWeight,
         color: color,

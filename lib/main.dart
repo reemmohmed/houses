@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:houses/core/my_observer.dart';
@@ -9,7 +10,7 @@ import 'package:houses/featuers/splash/splash_view.dart';
 
 void main() {
   Bloc.observer = MyObserver();
-  runApp(const Houses());
+  runApp(DevicePreview(enabled: true, builder: (context) => Houses()));
 }
 
 class Houses extends StatelessWidget {
@@ -25,6 +26,9 @@ class Houses extends StatelessWidget {
         BlocProvider(create: (_) => HomeCubit(apiHome)),
       ],
       child: MaterialApp(
+        useInheritedMediaQuery: true,
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
         // theme: ThemeData(fontFamily: "pacifico"),
         debugShowCheckedModeBanner: false,
         // home: NavebareView(),
