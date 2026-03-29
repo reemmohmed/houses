@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:houses/core/const/image_app.dart';
-import 'package:houses/featuers/home/presentation/views/home_view.dart';
 import 'package:shimmer/shimmer.dart';
 
 class CustomStackImage extends StatelessWidget {
@@ -52,7 +51,7 @@ class CustomStackImage extends StatelessWidget {
                               highlightColor: Colors.grey.shade100,
                               child: Container(
                                 width: double.infinity,
-                                height: size.width * 0.4, // نفس ارتفاع الصورة
+                                height: size.width * 0.4, // 
                                 color: Colors.grey[300],
                               ),
                             );
