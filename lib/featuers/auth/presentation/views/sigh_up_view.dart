@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:houses/core/app_validator.dart';
 import 'package:houses/featuers/auth/presentation/views/widget/custom_textformField.dart';
@@ -86,7 +87,10 @@ class _SighUpViewState extends State<SighUpView> {
                       "Create Account",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: size.width * 0.075,
+                        fontSize: kIsWeb
+                            ? size.width * 0.03
+                            : size.width * 0.075,
+                        // size.width * 0.075,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
@@ -98,7 +102,10 @@ class _SighUpViewState extends State<SighUpView> {
                       "Sign up to get started",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: size.width * 0.04,
+                        fontSize: kIsWeb
+                            ? size.width * 0.02
+                            : size.width * 0.04,
+                        // size.width * 0.04,
                         color: Colors.white70,
                       ),
                     ),

@@ -1,5 +1,5 @@
-
 // معلومات المنتج والزر
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:houses/core/titel_text_widget.dart';
 
@@ -15,7 +15,8 @@ class ProductInfo extends StatelessWidget {
         Text(
           "Amazing Product Title",
           style: TextStyle(
-            fontSize: size.width * 0.06,
+            fontSize: kIsWeb ? size.width * 0.03 : size.width * 0.06,
+            //  size.width * 0.06,
             fontWeight: FontWeight.bold,
             color: Colors.black87,
           ),
@@ -23,13 +24,14 @@ class ProductInfo extends StatelessWidget {
         const SizedBox(height: 12),
         Text(
           "This is a detailed description of the product. It explains features, quality, and why you should get it. Perfect for showcasing amazing products in your app!",
-          style: TextStyle(fontSize: size.width * 0.04, color: Colors.black54),
+          style: TextStyle(fontSize: 34, color: Colors.black54),
         ),
         const SizedBox(height: 20),
         Text(
           "Price: 455,000 EGP",
           style: TextStyle(
-            fontSize: size.width * 0.05,
+            fontSize: kIsWeb ? size.width * 0.02 : size.width * 0.05,
+            //  size.width * 0.05,
             fontWeight: FontWeight.bold,
             color: Colors.blueGrey[800],
           ),

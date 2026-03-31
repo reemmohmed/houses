@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:houses/core/app_validator.dart';
 import 'package:houses/featuers/auth/presentation/views/forgot_password.dart';
@@ -85,7 +86,8 @@ class _LoginViewState extends State<LoginView> {
                       "Welcome Back",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: size.width * 0.075,
+                        fontSize: kIsWeb ? size.width * 0.02 : 34,
+                        // size.width * 0.075,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
@@ -97,7 +99,10 @@ class _LoginViewState extends State<LoginView> {
                       "Login to continue",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: size.width * 0.04,
+                        fontSize: kIsWeb
+                            ? size.width * 0.02
+                            : size.width * 0.04,
+                        // size.width * 0.04,
                         color: Colors.white70,
                       ),
                     ),

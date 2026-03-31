@@ -1,4 +1,4 @@
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class AirbnbCard extends StatelessWidget {
@@ -28,7 +28,8 @@ class AirbnbCard extends StatelessWidget {
             borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
             child: Image.network(
               "https://picsum.photos/600/400",
-              height: size.height * .23,
+              height: size.height < 700 ? size.height * .26 : 220,
+              // size.height * .26,
               width: double.infinity,
               fit: BoxFit.cover,
             ),
@@ -43,7 +44,8 @@ class AirbnbCard extends StatelessWidget {
                 Text(
                   "Modern Villa in New Cairo",
                   style: TextStyle(
-                    fontSize: size.width * .045,
+                    fontSize: kIsWeb ? size.width * 0.02 : size.width * 0.045,
+                    // size.width * .045,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -56,7 +58,11 @@ class AirbnbCard extends StatelessWidget {
                 Text(
                   "EGP 3,250,000",
                   style: TextStyle(
-                    fontSize: size.width * .045,
+                    fontSize: kIsWeb
+                  ? size.width * 0.02
+                  : size.width * 0.045,
+
+                    // size.width * .045,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

@@ -10,7 +10,9 @@ import 'package:houses/featuers/splash/splash_view.dart';
 
 void main() {
   Bloc.observer = MyObserver();
-  runApp(DevicePreview(enabled: true, builder: (context) => Houses()));
+
+  runApp(const Houses());
+  //runAPP( DevicePreview(enabled: true, builder: (context) => Houses()));
 }
 
 class Houses extends StatelessWidget {
@@ -20,20 +22,21 @@ class Houses extends StatelessWidget {
   Widget build(BuildContext context) {
     final apiAuth = ApiAuth();
     final apiHome = ApiHome();
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (_) => AuthCubit(apiAuth)..checkLoggedIn()),
-        BlocProvider(create: (_) => HomeCubit(apiHome)),
-      ],
-      child: MaterialApp(
-        useInheritedMediaQuery: true,
-        locale: DevicePreview.locale(context),
-        builder: DevicePreview.appBuilder,
-        // theme: ThemeData(fontFamily: "pacifico"),
-        debugShowCheckedModeBanner: false,
-        // home: NavebareView(),
-        home: const SplashView(),
-      ),
+    return
+    //  MultiBlocProvider(
+    //   providers: [
+    //     BlocProvider(create: (_) => AuthCubit(apiAuth)..checkLoggedIn()),
+    //     BlocProvider(create: (_) => HomeCubit(apiHome)),
+    //   ],
+    //   child:
+    MaterialApp(
+      useInheritedMediaQuery: true,
+      // locale: DevicePreview.locale(context),
+      // builder: DevicePreview.appBuilder,
+      // theme: ThemeData(fontFamily: "pacifico"),
+      debugShowCheckedModeBanner: false,
+      // home: NavebareView(),
+      home: const SplashView(),
     );
   }
 }

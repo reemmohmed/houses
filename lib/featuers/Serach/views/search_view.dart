@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:houses/featuers/Serach/views/widget/airbnb_card.dart';
 
@@ -90,7 +91,8 @@ class _SearchViewState extends State<SearchView> {
               child: Text(
                 "Recommended",
                 style: TextStyle(
-                  fontSize: size.width * .055,
+                  fontSize: kIsWeb ? size.width * 0.03 : size.width * 0.055,
+                  // size.width * .055,
                   fontWeight: FontWeight.bold,
                 ),
               ),

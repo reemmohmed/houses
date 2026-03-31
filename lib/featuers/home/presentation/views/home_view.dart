@@ -78,7 +78,7 @@ class _HomeViewState extends State<HomeView> {
                       children: List.generate(5, (index) {
                         return Padding(
                           padding: const EdgeInsets.only(
-                            bottom: kIsWeb ? 60 : 12,
+                            bottom: kIsWeb ? 50 : 12,
                           ),
                           child: CustomStackImage(
                             onTap: () {

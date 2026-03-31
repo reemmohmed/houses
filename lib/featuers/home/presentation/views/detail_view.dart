@@ -49,7 +49,7 @@ class _DetailViewState extends State<DetailView> {
             "Detail View",
             style: TextStyle(
               fontSize: kIsWeb
-                  ? size.width * 0.05
+                  ? size.width * 0.02
                   : size.width * 0.04, // الحد الأقصى لحجم النص
               color: Colors.white,
               fontWeight: FontWeight.bold,
